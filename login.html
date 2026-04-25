@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar | FreteHub</title>
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-card">
+      <a class="back" href="index.html">&larr; Voltar</a>
+      <h1>Entrar</h1>
+      <p>Acesse como gestor ou caminhoneiro.</p>
+
+      <form id="loginForm">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="voce@email.com" required />
+
+        <label for="password">Senha</label>
+        <input id="password" type="password" placeholder="Sua senha" required />
+
+        <button type="submit">Entrar</button>
+      </form>
+
+      <p class="helper">Ainda não tem conta? <a href="cadastro-caminhoneiro.html">Cadastre-se como caminhoneiro</a>.</p>
+      <p id="message" class="message"></p>
+    </section>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreteHub | Gestão de Fretes</title>
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="index.html">FreteHub</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+    <nav id="homeNav">
+      <a href="#sobre">Sobre</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="login.html">Entrar</a>
+      <a class="btn btn-outline" href="cadastro-caminhoneiro.html">Sou caminhoneiro</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">MVP de logística e transporte</p>
+        <h1>Fretes organizados, motoristas conectados e operação em tempo real.</h1>
+        <p>
+          Publique cargas, libere detalhes somente para caminhoneiros aprovados,
+          acompanhe localização durante a ida para a carga e centralize veículos,
+          candidaturas e avaliações.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="cadastro-caminhoneiro.html">Cadastrar caminhoneiro</a>
+          <a class="btn btn-secondary" href="login.html">Acesso do gestor</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-title-row">
+          <div>
+            <p class="eyebrow small">Dados reais</p>
+            <h3>Resumo operacional</h3>
+          </div>
+          <span id="liveStatus" class="live-pill">Conectando</span>
+        </div>
+        <div class="metric"><span>Fretes ativos</span><strong id="homeActiveFreights">0</strong></div>
+        <div class="metric"><span>Caminhoneiros</span><strong id="homeDrivers">0</strong></div>
+        <div class="metric"><span>Veículos cadastrados</span><strong id="homeVehicles">0</strong></div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section split-section">
+      <div>
+        <p class="eyebrow">Sobre o app</p>
+        <h2>Um MVP enxuto para controlar fretes sem complicar a operação.</h2>
+      </div>
+      <p>
+        O FreteHub conecta gestores e caminhoneiros. O gestor cria fretes com origem,
+        destino, valor e informações privadas do local de carregamento. O caminhoneiro
+        vê apenas os dados públicos, se candidata e, após liberação, recebe endereço,
+        contato, Google Maps, Waze e rastreamento em tempo real.
+      </p>
+    </section>
+
+    <section id="funcionalidades" class="section grid-section">
+      <article>
+        <span>01</span>
+        <h3>Gestor</h3>
+        <p>Dashboard com cards reais, cadastro de frete, aprovação de candidaturas, localização em tempo real e avaliações.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Caminhoneiro</h3>
+        <p>Cadastro, múltiplos veículos, candidaturas, detalhes liberados, rota via Google Maps/Waze e envio de avaliação.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Sem Storage</h3>
+        <p>Upload de documentos removido para manter o MVP adequado ao plano Spark e evitar custos de armazenamento.</p>
+      </article>
+    </section>
+
+    <section id="avaliacoes" class="section reviews-section">
+      <div class="section-heading">
+        <p class="eyebrow">Avaliações</p>
+        <h2>O que os caminhoneiros estão dizendo</h2>
+        <p>As avaliações cadastradas no painel do caminhoneiro aparecem aqui em tempo real quando marcadas como públicas.</p>
+      </div>
+      <div id="reviewsList" class="reviews-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>FreteHub MVP &copy; 2026</p>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

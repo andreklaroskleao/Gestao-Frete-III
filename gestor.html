@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Gestor | FreteHub</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="index.html">FreteHub</a>
+    <nav>
+      <a href="#dashboard" data-tab-target="dashboard">Dashboard</a>
+      <a href="#novo-frete" data-tab-target="novo-frete">Novo frete</a>
+      <a href="#fretes" data-tab-target="fretes">Fretes</a>
+      <a href="#caminhoneiros" data-tab-target="caminhoneiros">Caminhoneiros</a>
+      <a href="#rastreamento" data-tab-target="rastreamento">Rastreamento</a>
+    </nav>
+    <button id="logoutBtn" class="logout">Sair</button>
+  </aside>
+
+  <main class="dashboard">
+    <div class="mobile-topbar"><strong id="mobileSectionTitle">Dashboard</strong><button id="logoutMobileBtn">Sair</button></div>
+
+    <section id="dashboard" class="page-section active-panel" data-tab-panel>
+      <div class="page-header">
+        <p class="eyebrow">Acesso do gestor</p>
+        <h1>Controle da operação de fretes</h1>
+        <p>Use as abas laterais para navegar. No mobile, cada área fica separada para evitar páginas longas e confusas.</p>
+      </div>
+      <div class="cards">
+        <article><span>Fretes abertos</span><strong id="openFreights">0</strong></article>
+        <article><span>Candidaturas pendentes</span><strong id="applicationsCount">0</strong></article>
+        <article><span>Caminhoneiros</span><strong id="driversCount">0</strong></article>
+        <article><span>Veículos</span><strong id="vehiclesCount">0</strong></article>
+      </div>
+    </section>
+
+    <section id="novo-frete" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Novo frete</h2>
+        <p class="hint">Endereço e contato do local ficam ocultos para caminhoneiros até a liberação da candidatura.</p>
+        <form id="freightForm" class="grid-form">
+          <select id="originState" required><option value="">Carregando estados...</option></select>
+          <select id="originCity" required disabled><option value="">Cidade de origem</option></select>
+          <select id="destinationState" required><option value="">Carregando estados...</option></select>
+          <select id="destinationCity" required disabled><option value="">Cidade de destino</option></select>
+          <input id="cargoType" placeholder="Tipo de carga" required />
+          <input id="weight" type="number" min="0" placeholder="Peso em kg" required />
+          <input id="price" type="number" min="0" placeholder="Valor do frete R$" required />
+          <input id="deadline" type="date" required />
+          <select id="vehicleType" required>
+            <option value="">Tipo de veículo</option>
+            <option>Truck</option><option>Toco</option><option>Carreta</option><option>VUC</option><option>Baú</option><option>Graneleiro</option><option>Prancha</option>
+          </select>
+          <input id="pickupAddress" class="span-2" placeholder="Endereço completo da coleta (privado até liberar)" required />
+          <input id="pickupContactName" placeholder="Contato no local" required />
+          <input id="pickupContactPhone" placeholder="Telefone do contato" required />
+          <textarea id="description" class="span-3" placeholder="Descrição pública e observações da carga"></textarea>
+          <button type="submit">Publicar frete</button>
+        </form>
+        <p id="formMessage" class="message"></p>
+      </div>
+    </section>
+
+    <section id="fretes" class="page-section" data-tab-panel>
+      <div class="panel">
+        <div class="section-row">
+          <h2>Fretes cadastrados</h2>
+          <select id="statusFilter">
+            <option value="todos">Todos</option>
+            <option value="aberto">Abertos</option>
+            <option value="em_andamento">Em andamento</option>
+            <option value="finalizado">Finalizados</option>
+          </select>
+        </div>
+        <div id="freightsList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="caminhoneiros" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Caminhoneiros cadastrados</h2>
+        <div id="driversList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="rastreamento" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Localização em tempo real</h2>
+        <p class="hint">Quando o caminhoneiro iniciar o acompanhamento, a última posição aparece aqui com horário e atalho para o mapa.</p>
+        <div id="trackingList" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/gestor.js"></script>
+</body>
+</html>
