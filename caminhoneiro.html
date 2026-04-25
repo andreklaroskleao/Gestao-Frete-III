@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Caminhoneiro | FreteHub</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar driver">
+    <a class="brand" href="index.html">FreteHub</a>
+    <nav>
+      <a href="#perfil" data-tab-target="perfil">Perfil</a>
+      <a href="#veiculos" data-tab-target="veiculos">Veículos</a>
+      <a href="#fretes-disponiveis" data-tab-target="fretes-disponiveis">Fretes</a>
+      <a href="#minhas-candidaturas" data-tab-target="minhas-candidaturas">Candidaturas</a>
+      <a href="#avaliar" data-tab-target="avaliar">Avaliar app</a>
+    </nav>
+    <button id="logoutBtn" class="logout">Sair</button>
+  </aside>
+
+  <main class="dashboard">
+    <div class="mobile-topbar"><strong id="mobileSectionTitle">Perfil</strong><button id="logoutMobileBtn">Sair</button></div>
+
+    <section id="perfil" class="page-section active-panel" data-tab-panel>
+      <div class="page-header driver-header">
+        <p class="eyebrow">Acesso do caminhoneiro</p>
+        <h1 id="welcomeTitle">Meu painel</h1>
+        <p>Cadastre seus veículos, acompanhe oportunidades e receba os dados do carregamento após a aprovação do gestor.</p>
+      </div>
+      <div class="cards three">
+        <article><span>Meus veículos</span><strong id="myVehiclesCount">0</strong></article>
+        <article><span>Fretes disponíveis</span><strong id="availableFreightsCount">0</strong></article>
+        <article><span>Minhas candidaturas</span><strong id="myApplicationsCount">0</strong></article>
+      </div>
+      <div class="panel">
+        <h2>Minha operação</h2>
+        <p class="hint">Depois da aprovação, o frete libera endereço, contato, rotas pelo Google Maps/Waze e acompanhamento em tempo real.</p>
+      </div>
+    </section>
+
+    <section id="veiculos" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Cadastrar veículo</h2>
+        <form id="vehicleForm" class="grid-form compact-form">
+          <input id="plate" placeholder="Placa" required />
+          <input id="model" placeholder="Modelo" required />
+          <input id="year" type="number" placeholder="Ano" required />
+          <select id="type" required>
+            <option value="">Tipo</option>
+            <option>Truck</option><option>Toco</option><option>Carreta</option><option>VUC</option><option>Baú</option><option>Graneleiro</option><option>Prancha</option>
+          </select>
+          <input id="capacity" type="number" placeholder="Capacidade kg" required />
+          <button type="submit">Adicionar veículo</button>
+        </form>
+        <p id="vehicleMessage" class="message"></p>
+        <div id="vehiclesList" class="list compact"></div>
+      </div>
+    </section>
+
+    <section id="fretes-disponiveis" class="page-section" data-tab-panel>
+      <div class="panel">
+        <div class="section-row">
+          <h2>Fretes disponíveis</h2>
+          <input id="freightSearch" placeholder="Buscar origem, destino ou carga" />
+        </div>
+        <div id="availableFreightsList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="minhas-candidaturas" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Minhas candidaturas</h2>
+        <div id="myApplicationsList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="avaliar" class="page-section" data-tab-panel>
+      <div class="panel">
+        <h2>Avaliar o FreteHub</h2>
+        <p class="hint">Compartilhe sua experiência com a plataforma.</p>
+        <form id="reviewForm" class="grid-form compact-form">
+          <select id="reviewRating" required>
+            <option value="">Nota</option>
+            <option value="5">5 estrelas</option>
+            <option value="4">4 estrelas</option>
+            <option value="3">3 estrelas</option>
+            <option value="2">2 estrelas</option>
+            <option value="1">1 estrela</option>
+          </select>
+          <select id="reviewPublic" required>
+            <option value="true">Pode aparecer no site</option>
+            <option value="false">Não mostrar no site</option>
+          </select>
+          <textarea id="reviewText" class="span-2" placeholder="Conte como foi sua experiência" required></textarea>
+          <button type="submit">Enviar avaliação</button>
+        </form>
+        <p id="reviewMessage" class="message"></p>
+        <div id="myReviewsList" class="list compact"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/caminhoneiro.js"></script>
+</body>
+</html>

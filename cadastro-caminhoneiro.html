@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro Caminhoneiro | FreteHub</title>
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-card wide">
+      <a class="back" href="index.html">&larr; Voltar</a>
+      <h1>Cadastro de caminhoneiro</h1>
+      <p>Crie sua conta e depois adicione um ou mais veículos no painel.</p>
+
+      <form id="registerDriverForm" class="grid-form">
+        <div>
+          <label for="name">Nome completo</label>
+          <input id="name" type="text" required />
+        </div>
+        <div>
+          <label for="phone">Telefone</label>
+          <input id="phone" type="tel" required />
+        </div>
+        <div>
+          <label for="document">CPF/CNPJ</label>
+          <input id="document" type="text" required />
+        </div>
+        <div>
+          <label for="cnh">CNH</label>
+          <input id="cnh" type="text" required />
+        </div>
+        <div>
+          <label for="baseState">Estado base</label>
+          <select id="baseState" required>
+            <option value="">Carregando estados...</option>
+          </select>
+        </div>
+        <div>
+          <label for="baseCity">Cidade base</label>
+          <select id="baseCity" required disabled>
+            <option value="">Selecione o estado primeiro</option>
+          </select>
+        </div>
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" required />
+        </div>
+        <div>
+          <label for="password">Senha</label>
+          <input id="password" type="password" minlength="6" required />
+        </div>
+        <button type="submit">Criar cadastro</button>
+      </form>
+
+      <p class="helper">Já tem conta? <a href="login.html">Entrar</a>.</p>
+      <p id="message" class="message"></p>
+    </section>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
