@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreteHub | Fretes, caminhoneiros e comissoes</title>
+  <link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/premium.css"/></head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="index.html">FreteHub</a>
+    <button id="menuToggle" class="menu-toggle">☰</button>
+    <nav id="mainNav">
+      <a href="#empresas">Tenho carga</a>
+      <a href="#caminhoneiros">Sou caminhoneiro</a>
+      <a href="#" id="openCodeModalTop">Consultar frete</a>
+      <a href="#avaliacoes">Avaliacoes</a>
+      <a class="btn btn-outline" href="pages/login.html">Entrar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Fretes com controle, rastreabilidade e comissao registrada</p>
+        <h1>Conecte cargas a caminhoneiros com comprovante de intermediacao.</h1>
+        <p>Publique fretes, aprove motoristas, libere dados com seguranca, acompanhe a operacao e controle a comissao de cada frete fechado.</p>
+        <div class="hero-actions">
+          <a class="btn" href="pages/cadastro-empresa.html">Tenho carga</a>
+          <a class="btn btn-secondary" href="pages/cadastro-caminhoneiro.html">Sou caminhoneiro</a>
+          <button class="btn btn-outline" id="openCodeModalHero" type="button">Consultar frete</button>
+          <a class="btn btn-ghost" href="pages/login.html">Acessar painel</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="card-title-row">
+          <div><p class="eyebrow small">Resumo operacional</p><h3>Operacao em tempo real</h3></div>
+          <span id="liveStatus" class="live-pill">Atualizando</span>
+        </div>
+        <div class="metric"><span>Fretes ativos</span><strong id="homeFreights">0</strong></div>
+        <div class="metric"><span>Caminhoneiros</span><strong id="homeDrivers">0</strong></div>
+        <div class="metric"><span>Veiculos cadastrados</span><strong id="homeVehicles">0</strong></div>
+      </aside>
+    </section>
+
+    <section id="empresas" class="section split-section">
+      <div>
+        <p class="eyebrow">Para empresas</p>
+        <h2>Publique sua carga e pague comissao somente quando contratar.</h2>
+        <p>A empresa acompanha candidatos, confirma contratacao, visualiza status, valida codigo do frete e mantem o historico da operacao registrado.</p>
+        <div class="feature-list"><span>Confirmacao de contratacao</span><span>Comprovante de intermediacao</span><span>Comissao por frete</span><span>WhatsApp com registro</span></div>
+      </div>
+      <a class="btn" href="pages/cadastro-empresa.html">Cadastrar empresa</a>
+    </section>
+
+    <section id="caminhoneiros" class="section split-section alt">
+      <div>
+        <p class="eyebrow">Para caminhoneiros</p>
+        <h2>Encontre fretes, receba dados apos aprovacao e construa reputacao.</h2>
+        <p>O caminhoneiro cadastra veiculos, informa disponibilidade, recebe rotas pelo Maps ou Waze e atualiza o status da viagem em poucos toques.</p>
+        <div class="feature-list"><span>Fretes disponiveis</span><span>Cadastro de veiculos</span><span>Rastreamento autorizado</span><span>Avaliacoes</span></div>
+      </div>
+      <a class="btn btn-secondary" href="pages/cadastro-caminhoneiro.html">Cadastrar caminhoneiro</a>
+    </section>
+
+    <section id="solucoes" class="section grid-section">
+      <article><span>01</span><h3>Codigo unico</h3><p>Cada operacao recebe um codigo para acompanhar, validar e comprovar a origem do frete.</p></article>
+      <article><span>02</span><h3>Dados protegidos</h3><p>Endereco e contato so aparecem para o caminhoneiro apos a liberacao.</p></article>
+      <article><span>03</span><h3>Financeiro organizado</h3><p>Comissao, vencimento, cobranca, pagamento e recibo ficam vinculados ao frete.</p></article>
+    </section>
+
+    <section id="validar" class="section split-section premium-callout">
+      <div>
+        <p class="eyebrow">Consulta segura</p>
+        <h2>Valide uma operacao sem expor dados sensiveis.</h2>
+        <p>O codigo do frete confirma a intermediacao, o status atual e o historico essencial da operacao. A consulta abre em uma janela organizada, mantendo a pagina inicial limpa.</p>
+      </div>
+      <button class="btn" id="openCodeModalSection" type="button">Consultar codigo do frete</button>
+    </section>
+
+    <section id="avaliacoes" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Avaliacoes</p>
+        <h2>Experiencias recentes</h2>
+        <p>As avaliacoes aparecem com data e ficam organizadas em carrossel.</p>
+      </div>
+      <div id="reviewsList" class="reviews-carousel"></div>
+      <button id="seeMoreReviews" class="see-more" hidden>Ver mais avaliacoes</button>
+    </section>
+    <div id="codeConsultModal" class="home-modal" aria-hidden="true">
+    <div class="home-modal-card" role="dialog" aria-modal="true" aria-labelledby="codeModalTitle">
+      <button id="closeCodeModal" class="home-modal-close" type="button" aria-label="Fechar">×</button>
+      <p class="eyebrow">Consulta de frete</p>
+      <h2 id="codeModalTitle">Digite o codigo da operacao</h2>
+      <p>Consulte o status e valide se o frete foi intermediado pelo FreteHub.</p>
+      <form id="codeConsultForm" class="modal-consult-form">
+        <input id="modalFreightCode" placeholder="FRT-2026-000000" autocomplete="off" />
+        <button class="btn" type="submit">Consultar</button>
+      </form>
+      <div class="modal-actions-inline">
+        <a id="modalValidateLink" class="btn btn-outline" href="pages/validar.html">Validar codigo</a>
+        <a id="modalTrackLink" class="btn btn-ghost" href="pages/acompanhar.html">Acompanhar status</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <footer>FreteHub © 2026 - Gestao de fretes, rastreamento e comissoes</footer>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>
